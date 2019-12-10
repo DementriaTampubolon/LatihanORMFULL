@@ -37,9 +37,7 @@ public class UserAccountController<E> {
     }
 
     public String save(int id, String name, String password) {
-        dao.save(new UserAccount(id, name, BCrypt.hashpw(password, BCrypt.gensalt(5))));
-        String a = "Login Sukses";
-        return a;
+       return dao.save(new UserAccount(id, name, BCrypt.hashpw(password, BCrypt.gensalt(5))))==null ?"Login Success":"Login Failed";
     }
 
     public int max() {
@@ -54,7 +52,21 @@ public class UserAccountController<E> {
 
             return newId;
 
-        }
+        }}
+        public List<UserAccount> getAll(){
+     return this.dao.select("UserAccount");
     }
+        
+         public boolean selectByName(String key){
+        UserAccount account = (UserAccount) this.dao.selectByField("UserAccount", "username", key);
+             if (account==null) {
+                 
+                 return  true;
+             }
+             else{
+                 return false;
+             }
+    }
+    
 
 }

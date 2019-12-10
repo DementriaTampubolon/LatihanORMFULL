@@ -294,8 +294,10 @@ public class LocationsView extends javax.swing.JInternalFrame {
             txtState.setText((String) tblLocation.getValueAt(row, 4));
         }
         String a = (String) tblLocation.getValueAt(row, 5);
+       // JOptionPane.showMessageDialog(this, countryController.selectByName(a).getCountryId());
+      
         cmbCountry.setSelectedItem((String) countryController.selectByName(a).getCountryId() + " - " + a);
-        txtId.setEnabled(false);
+            txtId.setEnabled(false);
 
     }//GEN-LAST:event_tblLocationMousePressed
 

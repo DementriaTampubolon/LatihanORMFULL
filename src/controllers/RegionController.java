@@ -31,21 +31,12 @@ public class RegionController<E> {
 
     public String save(String id, String name) {
       
-        dao.save(new Region(Integer.parseInt(id), name));
-        String a="Sukses";
-        return  a;
-       // return this.dao.save1(new Region(new BigDecimal(id), name)) ? 
-            //    "Success to Save Region" : "Failed to Save Region";
-       
+       return dao.save(new Region(Integer.parseInt(id), name))==null ?"Failed":"Success";
     }
     
 
     public String delete(String id){
-         dao.delete(new Region(Integer.parseInt(id)));
-        String a="Sukses";
-        return  a;
-//        return this.dao.delete(new Region(new BigDecimal(id))) ?
-//                "Success to Delete Region" : "Failed to Delete Region";
+        return dao.delete(new Region(Integer.parseInt(id)))==null ?"Failed":"Success";
     }
     
     public List<Region> getAll(){

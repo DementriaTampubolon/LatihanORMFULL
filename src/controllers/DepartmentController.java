@@ -27,16 +27,12 @@ public class DepartmentController<E> {
     }
 
     public String save(String id, String name, String manid, String locid) {
-        dao.save(new Department(new Short(id), name, new Employee(new Integer(manid)), new Location(new BigDecimal(locid))));
-        String a = "Sukses";
-        return a;
+        return dao.save(new Department(new Short(id), name, new Employee(new Integer(manid)), new Location(new BigDecimal(locid))))==null ?"Failed":"Success";
     }
 
 //
     public String delete(String id) {
-        dao.delete(new Department(id));
-        String a = "Sukses";
-        return a;
+        return dao.delete(new Department(new Short(id)))==null ?"Failed":"Success";
     }
 
     public List<Department> getAll() {

@@ -29,15 +29,12 @@ public class CountryController<E> {
     }
 
     public String save(String id, String name, String regionId) {
-        dao.save(new Country(id, name, new Region(Integer.parseInt(regionId))));
-        String a = "Sukses";
-        return a;
+       return dao.save(new Country(id, name, new Region(Integer.parseInt(regionId))))==null ?"Failed":"Success";
     }
 
     public String delete(String id) {
-        dao.delete(new Country(id));
-        String a = "Sukses";
-        return a;
+       return dao.delete(new Country(id))==null ?"Failed":"Success";
+        
     }
 
     public List<Country> getAll() {

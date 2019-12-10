@@ -39,21 +39,15 @@ public class EmployeeController <E>{
         java.util.Date date = sdf1.parse(startDate);
         java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());
 
-        dao.save(new Employee(Integer.parseInt(id), firstname,
+     return dao.save(new Employee(Integer.parseInt(id), firstname,
                 lastname, email, phone, sqlStartDate, Integer.parseInt(salary),
                Integer.parseInt(commision), new Employee(Integer.parseInt(manager)),
-                new Job(job), new Department(Short.parseShort(department))));
-        
-        String a="Sukses";
-        return  a;
-               
+                new Job(job), new Department(Short.parseShort(department))))==null ?"Failed":"Success";
     }
 
 //
     public String delete(String id) {
-         dao.delete(new Employee(Integer.parseInt(id)));
-        String a="Sukses";
-        return  a;
+        return dao.delete(new Employee(Integer.parseInt(id)))==null ?"Failed":"Success";
     }
 
     public List<Employee> getAll() {

@@ -152,9 +152,21 @@ public class ManualTest {
 
      //
       
-        RegionController uja= new RegionController();
-        //uja.regis("5", "tes", "tes");
-        System.out.println(uja.getAll());
+//        RegionController uja= new RegionController();
+//        //uja.regis("5", "tes", "tes");
+//        System.out.println(uja.getAll());
 
+
+        
+          UserAccountController accountController=new UserAccountController();
+         
+         boolean b=  accountController.selectByName("demen");
+         if(b){
+             System.out.println("uname  tersedia");
+
+        }
+         else{
+             System.out.println("uname tidak tersedia");
+         }
     }
 }

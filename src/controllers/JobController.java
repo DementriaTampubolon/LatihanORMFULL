@@ -26,15 +26,11 @@ public class JobController<E> {
     }
 
     public String save(String id, String name, Integer min, Integer max) {
-      dao.save(new Job(id, name, min, max));
-     String a="Sukses";
-        return  a;}
-
+     return dao.save(new Job(id, name, min, max))==null ?"Failed":"Success";
+    }
 //
     public String delete(String id, String name, Integer min, Integer max) {
-        dao.delete(new Job(id, name, min, max));
-        String a = "Sukses";
-        return a;
+      return dao.delete(new Job(id, name, min, max))==null ?"Failed":"Success";
     }
 
     public List<Job> getAll() {

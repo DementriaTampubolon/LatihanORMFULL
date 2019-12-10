@@ -25,16 +25,13 @@ public class LocationController<E> {
     }
 
     public String save(String id, String address, String postal, String city, String province, String country) {
-        dao.save(new Location(new BigDecimal(id),
-                address, postal, city, province, new Country(country)));
-        String a = "Sukses";
-        return a;
+       return dao.save(new Location(new BigDecimal(id),
+                address, postal, city, province, new Country(country)))==null ?"Failed":"Success";
+        
     }
 
     public String delete(String id) {
-        dao.delete(new Location(new BigDecimal(id)));
-        String a = "Sukses";
-        return a;
+     return   dao.delete(new Location(new BigDecimal(id)))==null ?"Failed":"Success";
     }
 
     public List<Location> getAll() {
@@ -45,12 +42,10 @@ public class LocationController<E> {
         return this.dao.search("Location", cmb, txt);
     }
 
-    public Location selectByName(String txt) {
-        return (Location) this.dao.selectByField("Location", "city", txt);
-    }
+  
 
-    public Location selectById(String txt) {
-        return (Location) this.dao.selectByField("Location", "locationId", txt);
+     public Location selectByName(String lname) {
+        return (Location) this.dao.selectByField("Location", "city", lname);
     }
 
 }
