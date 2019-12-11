@@ -34,9 +34,16 @@ public class SendMail {
             pesan.setFrom("bootcamp32java@gmail.com");//isi dengan gmail kalian sendiri, biasanya sama nanti dengan username
             pesan.setRecipient(Message.RecipientType.TO, new InternetAddress(to));//isi dengan tujuan email
             pesan.setSubject("Java Mail");
-            pesan.setText("Selamat "+ nama+" Anda Sukses Registrasi.Email dikirim menggunakan Java Mail");
-             
-            String username="bootcamp32java@gmail.com"; //ganti dengan gmail kalian sendiri
+           // pesan.setText("Selamat "+ nama+" Anda Sukses Registrasi.Email dikirim menggunakan Java Mail");
+            
+           pesan.setContent("<center><h2>Hello, Dementria. Thank you for registering.<br>Please verify your account</h2>"
+                    + "<h4>In order to use an application, you must verify your account. "
+                    + "You can verify your account by click the button below.</h4>"
+                    + "<a href='www.mii.co.id' target='_BLANK'><button style='background-color:blue;'>Click Here to Verify</button>"
+                    + "</a><center>", 
+                    "text/html; charset=utf-8");
+            
+                String username="bootcamp32java@gmail.com"; //ganti dengan gmail kalian sendiri
             String password="ProgrammerJava"; //ganti dengan password kalian sendiri
             Transport.send(pesan, username, password);
              
